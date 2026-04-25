@@ -1,96 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Formulário com consulta a API de CEPs</title>
-    <script src="script.js" defer></script>
-    <!-- Principal CSS do Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <style>
-        body {
-            background-image: url('https://d89jynn41mp3o.cloudfront.net/blog/wp-content/uploads/2017/07/18102313/como-fazer-rastreamento.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
-            
-            
-            
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Endereço por CEP</title>
 
-        .inputClass {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-sizing: border-box;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        label {
-            font-weight: bold;
-
-        }
-
-        div {
-            width: 30%;
-            border-radius: 5px;
-            background-color: #f2f2f2;
-            padding: 20px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .title {
-            margin-bottom: 100px;
-        }
-
-        button {
-            margin-top: 30px;
-            border-radius: 10px;
-            font-size: 20px;
-            background-color: beige;
-        }
-
-        button:hover {
-            cursor: pointer;
-            background-color: gray;
-            
-        }
-
-
-    </style>
+    <script src="cep.js" defer></script>
 </head>
 
 <body>
+    <main class="page-container">
+        <section class="form-card">
+            <h1>Consultar Endereço por CEP</h1>
+            <p class="subtitle">
+                Informe o CEP para preencher automaticamente os dados do endereço.
+            </p>
 
-    <div>
+            <hr>
 
-        <h1>Consultar Endereço Por CEP</h1>
-        <hr>
+            <form action="#" method="post" class="address-form">
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input
+                        type="text"
+                        id="cep"
+                        name="cep"
+                        class="form-input"
+                        placeholder="Digite seu CEP"
+                        inputmode="numeric"
+                        autocomplete="postal-code"
+                    >
+                </div>
 
-        <form action="#">
-            <label>CEP:</label>
-            <input placeholder="Digite seu CEP" id="cep" class="inputClass"/><br>
+                <div class="form-group">
+                    <label for="logradouro">Rua</label>
+                    <input
+                        type="text"
+                        id="logradouro"
+                        name="logradouro"
+                        class="form-input"
+                        placeholder="Digite o nome da sua rua"
+                        autocomplete="address-line1"
+                    >
+                </div>
 
-            <label>Rua:</label>
-            <input placeholder="Digite o nome da sua rua" id="logradouro" class="inputClass" /><br>
+                <div class="form-group">
+                    <label for="bairro">Bairro</label>
+                    <input
+                        type="text"
+                        id="bairro"
+                        name="bairro"
+                        class="form-input"
+                        placeholder="Digite o seu bairro"
+                    >
+                </div>
 
-            <label>Bairro:</label>
-            <input placeholder="Digite o seu bairro" id="bairro" class="inputClass" /><br>
+                <div class="form-group">
+                    <label for="localidade">Cidade</label>
+                    <input
+                        type="text"
+                        id="localidade"
+                        name="localidade"
+                        class="form-input"
+                        placeholder="Digite a sua cidade"
+                        autocomplete="address-level2"
+                    >
+                </div>
 
-            <label>Cidade:</label>
-            <input placeholder="Digite a sua cidade" id="localidade" class="inputClass" /><br>
+                <div class="form-group">
+                    <label for="uf">Estado</label>
+                    <input
+                        type="text"
+                        id="uf"
+                        name="uf"
+                        class="form-input"
+                        placeholder="Digite o seu estado"
+                        maxlength="2"
+                        autocomplete="address-level1"
+                    >
+                </div>
 
-            <label>Estado:</label>
-            <input placeholder="Digite o seu estado" id="uf" class="inputClass" /><br>
-            <button type="submit">Enviar</button>
-        </form>
-        <script src="cep.js"></script>
-    </div>
+                <button type="submit" class="submit-button">
+                    Enviar
+                </button>
+            </form>
+        </section>
+    </main>
+</body>
 
 </html>
